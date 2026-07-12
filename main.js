@@ -229,3 +229,49 @@
     });
   });
 })();
+
+
+/* ============================================================
+   7. CONTACT OBFUSCATION — decode email, phone + address at runtime
+============================================================ */
+(function initContactObfuscation() {
+  function rot13(str) {
+    return str.replace(/[a-zA-Z]/g, function(c) {
+      return String.fromCharCode(
+        c.charCodeAt(0) + (c.toLowerCase() < 'n' ? 13 : -13)
+      );
+    });
+  }
+
+  // ROT13 encoded values:
+  // Email:   "info@avantecmedia.com"  → "vasb@ninagrepzrqvn.pbz"
+  // Phone:   "+1 (727) 435-5663"
+  // Address: "7901 4th St N<br />Suite 300<br />St Petersburg, FL 33702"
+  const encoded = {
+    email:   'vasb@ninagrepzrqvn.pbz',
+    phone:   '+1 (727) 435-5663',
+    address: 'fc3ce 4gu Fg A<oe />Fhvgr 300<oe />Fg Crgrefohey, SY 33702'
+  };
+
+  // Email
+  const emailEl = document.getElementById('footer-email');
+  if (emailEl) {
+    const decoded = rot13(encoded.email);
+    emailEl.textContent = decoded;
+    emailEl.href = 'mailto:' + decoded;
+  }
+
+  // Phone
+  const phoneEl = document.getElementById('footer-phone');
+  if (phoneEl) {
+    const decoded = rot13(encoded.phone);
+    phoneEl.textContent = decoded;
+    phoneEl.href = 'tel:+1' + decoded.replace(/\D/g, '');
+  }
+
+  // Address
+  const addressEl = document.getElementById('footer-address');
+  if (addressEl) {
+    addressEl.innerHTML = rot13(encoded.address);
+  }
+})();
