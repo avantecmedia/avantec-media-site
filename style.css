@@ -510,7 +510,7 @@ body {
    ABOUT SECTION
 ============================================================ */
 .about-img-frame {
-  aspect-ratio: 4/5;
+  aspect-ratio: 2/3;
   overflow: hidden;
   background: #111827;
   border: 1px solid rgba(255,255,255,0.06);
