@@ -248,7 +248,7 @@
   // Phone:   "+1 (727) 435-5663"
   // Address: "7901 4th St N<br />Suite 300<br />St Petersburg, FL 33702"
   const encoded = {
-    email:   'vasb@ninagrepzrqvn.pbz',
+    email:   'vasb@ninagrecmrqvn.pbz',
     phone:   '+1 (727) 435-5663',
     address: '7901 4gu Fg A<oe />Fhvgr 300<oe />Fg Crgrefohet, SY 33702'
   };
@@ -266,7 +266,7 @@
   if (phoneEl) {
     const decoded = rot13(encoded.phone);
     phoneEl.textContent = decoded;
-    phoneEl.href = 'tel:+1' + decoded.replace(/\D/g, '');
+    phoneEl.href = 'tel:+' + decoded.replace(/\D/g, '');
   }
 
   // Address
