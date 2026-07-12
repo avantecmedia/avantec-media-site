@@ -248,7 +248,7 @@
   // Phone:   "+1 (727) 435-5663"
   // Address: "7901 4th St N<br />Suite 300<br />St Petersburg, FL 33702"
   const encoded = {
-    email:   'vasb@ninagrecmrqvn.pbz',
+    email:   btoa('info@avantecmedia.com'),
     phone:   '+1 (727) 435-5663',
     address: '7901 4gu Fg A<oe />Fhvgr 300<oe />Fg Crgrefohet, SY 33702'
   };
@@ -256,7 +256,7 @@
   // Email
   const emailEl = document.getElementById('footer-email');
   if (emailEl) {
-    const decoded = rot13(encoded.email);
+    const decoded = atob(encoded.email);
     emailEl.textContent = decoded;
     emailEl.href = 'mailto:' + decoded;
   }
