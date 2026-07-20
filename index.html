@@ -380,24 +380,7 @@
           <p class="text-xs text-slate text-center mt-3">Secure checkout via Stripe</p>
         </div>
 
-        <!-- Package: Pinnacle -->
-        <div class="package-card">
-          <p class="package-tier">Pinnacle</p>
-          <p class="package-price">$649</p>
-          <p class="package-desc">The complete aerial experience for luxury and large properties.</p>
-          <ul class="package-features">
-            <li>✓ Unlimited HDR photos</li>
-            <li>✓ Interior & exterior</li>
-            <li>✓ Cinematic walkthrough video</li>
-            <li>✓ 4K drone video & stills</li>
-            <li>✓ Agent branded content</li>
-            <li>✓ Priority 12-hr delivery</li>
-          </ul>
-          <button class="pay-btn" aria-label="Purchase Pinnacle package for $649">
-            Book Pinnacle — $649
-          </button>
-          <p class="text-xs text-slate text-center mt-3">Secure checkout via Stripe</p>
-        </div>
+  
 
 
 
@@ -424,7 +407,7 @@
     <li>✓ Embedded Photo & Video Modules</li>
     <li>✓ High-Converting Lead Capture Funnel</li>
     <li>✓ Rapid 48-Hour Live Web Launch</li>
-    <li>✓ 1 Year Premium Vercel Hosting</li>
+    <li>✓ 1 Year High-Speed Cloud Hosting & Management</li>
   </ul>
   
   <!-- Interactive Action Button -->
@@ -778,5 +761,29 @@
 
 
   <script src="main.js"></script>
+
+
+  <script>
+  // Avantec Media Interactive UI Controller
+  document.addEventListener('DOMContentLoaded', () => {
+    const bundleSelect = document.getElementById('bundle-select');
+    const bundlePriceDisplay = document.getElementById('dynamic-bundle-price');
+    const bundlePayBtn = document.getElementById('bundle-pay-btn');
+
+    if (bundleSelect && bundlePriceDisplay && bundlePayBtn) {
+      bundleSelect.addEventListener('change', (e) => {
+        const selectedOption = e.target.options[e.target.selectedIndex];
+        const newPrice = selectedOption.getAttribute('data-price');
+        
+        // Instantly swap the price texts dynamically on screen
+        bundlePriceDisplay.textContent = newPrice;
+        bundlePayBtn.textContent = `Book Web Option — ${newPrice}`;
+      });
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
